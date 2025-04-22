@@ -1,5 +1,6 @@
 # portfolio-turmaADS
-Portfólio Modelo - Template para Estudantes de ADS 🎓  
+Portfólio Modelo - Template para Estudantes de ADS 🎓
+
 Um template 100% gratuito em HTML, CSS e JavaScript para meus alunos de Análise e Desenvolvimento de Sistemas praticarem. 
 
 ✅ Estrutura semântica HTML5 
