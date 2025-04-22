@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!-- Declara o tipo de documento e avisa ao navegador: "Ei, isso aqui é HTML5 moderno!" -->
+<html lang="pt-BR">
+  <!-- Raiz do documento com definição de idioma (português) -->
+
+  <!-- Área técnica - o navegador lê, mas não mostra diretamente -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Acentuação liberada! (ç, á, ã) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Configuração mágica para dispositivos móveis -->
+    <title>Portfólio | Maiara Sacramento</title>
+    <!-- Título que aparece na aba do navegador -->
+
+    <!-- LINKS PARA FOLHAS DE ESTILO -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Font Awesome - caixa de ícones profissionais -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- CSS personalizado - onde a mágica do design acontece -->
+  </head>
+
+  <body>
+    <!-- Corpo visível da página - tudo que o usuário vê -->
+
+    <!-- Botão de Tema Dark/Light -->
+    <div class="theme-toggle">
+      <i class="fas fa-moon"></i>
+      <!-- Ícone que vira sol quando clicado (via JavaScript) -->
+    </div>
+
+    <!-- Cabeçalho com Efeito Parallax (fundo que mexe diferente) -->
+    <header class="parallax">
+      <div class="profile-container">
+        <!-- Container da foto de perfil -->
+        <img src="Maiara.png" alt="Maiara Sacramento" class="profile-img" />
+        <!-- Foto com texto alternativo (importante para acessibilidade) -->
+        <h1>Maiara Sacramento</h1>
+        <!-- Título principal - Meu nome -->
+        <p class="tagline">
+          Consultora Analista de Dados & Professora Universitária
+        </p>
+        <!-- Subtítulo/tagline profissional -->
+
+        <!-- LINKS SOCIAIS -->
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/in/maiara-sacramento-60118092/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <!-- Cada link abre em nova aba (target="_blank") -->
+          <a href="https://github.com/" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://www.instagram.com/mssacramento13/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+
+        <!-- E-MAIL CLICÁVEL -->
+        <i class="fas fa-envelope email-icon" data-email></i>
+        maiara.sacramento@kroton.com.br
+      </div>
+    </header>
+
+    <!-- MENU DE NAVEGAÇÃO FIXO -->
+    <nav class="sticky-nav">
+      <ul>
+        <!-- Lista não ordenada de links -->
+        <li>
+          <a href="#about"><i class="fas fa-user"></i> Sobre</a>
+          <!-- Link âncora para a seção "Sobre" -->
+        </li>
+        <li>
+          <a href="#experience"><i class="fas fa-briefcase"></i> Experiência</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fas fa-phone"></i> Contato</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+      <!-- SEÇÃO "SOBRE MIM" -->
+      <section id="about" class="section fade-in">
+        <!-- ID para âncora e classe para animação -->
+        <h2>
+          <span class="section-icon"><i class="fas fa-user-graduate"></i></span>
+          Sobre Mim
+        </h2>
+        <!-- Título com ícone -->
+
+        <!-- GRID DE CONTEÚDO (2 COLUNAS) -->
+        <div class="content-grid">
+          <!-- COLUNA 1 - TEXTO -->
+          <div class="about-text">
+            <p>
+              Analista com mais de 16 anos de experiência na Secretaria da
+              Educação, atualmente lecionando Análise e Desenvolvimento de
+              Sistemas na UNIME Aguangera, prestadora de serviços para o
+              Instituto Paulo Freire e algumas prefeituras municipais do Estado
+              da Bahia.
+            </p>
+            <p>
+              Minha missão é transformar vidas através da educação tecnológica,
+              com foco em:
+            </p>
+
+            <!-- LISTA DE HABILIDADES -->
+            <ul class="skills-list">
+              <li><i class="fas fa-check"></i> Análise de Dados</li>
+              <li>
+                <i class="fas fa-check"></i> Metodologias Ativas de Ensino
+              </li>
+              <li><i class="fas fa-check"></i> Inclusão Digital</li>
+            </ul>
+
+            <p>
+              Este Portfólio tem a intenção de auxiliar os estudantes do 4º e 5º
+              semestres de Análise e Desenvolvimento de Sistemas para o
+              entendimento da programação frontend.
+            </p>
+          </div>
+
+          <!-- COLUNA 2 - CARDS DE FATOS -->
+          <div class="about-facts">
+            <div class="fact-card">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <h3>16+ Anos</h3>
+              <p>Experiência em Educação e Tecnologia</p>
+            </div>
+            <div class="fact-card">
+              <i class="fas fa-graduation-cap"></i>
+              <h3>1000+</h3>
+              <p>Alunos Formados</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO "EXPERIÊNCIA" -->
+      <section id="experience" class="section fade-in">
+        <h2>
+          <span class="section-icon"><i class="fas fa-laptop-code"></i></span>
+          Experiência
+        </h2>
+
+        <!-- LINHA DO TEMPO -->
+        <div class="timeline">
+          <!-- ITEM 1 DA LINHA DO TEMPO -->
+          <div class="timeline-item">
+            <div class="timeline-date">2025 - Presente</div>
+            <div class="timeline-content">
+              <h3>Instituto Paulo Freire</h3>
+              <p>Professora de Análise e Desenvolvimento de Software</p>
+              <ul>
+                <li>Consultora de Tecnologias Pedagógicas</li>
+                <li>Desenvolve currículos de tecnologia</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ITEM 2 DA LINHA DO TEMPO -->
+          <div class="timeline-item">
+            <div class="timeline-date">2024 - Presente</div>
+            <div class="timeline-content">
+              <h3>UNIME Aguangera</h3>
+              <p>Professora de Análise e Desenvolvimento de Software</p>
+              <ul>
+                <li>Ministra aulas de todas as disciplinas do curso</li>
+                <li>Desenvolve materiais didáticos interativos</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ITEM 3 DA LINHA DO TEMPO -->
+          <div class="timeline-item">
+            <div class="timeline-date">2018 - 2025</div>
+            <div class="timeline-content">
+              <h3>Secretaria da Educação do Estado da Bahia</h3>
+              <p>Coordenadora de Sistemas e Dados</p>
+              <ul>
+                <li>Coordenadora do Programa Mais Estudo</li>
+                <li>Coordenadora do Projeto Educa Mais Bahia</li>
+                <li>Administradora do Ambiente Moodle - SEC</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO "CONTATO" -->
+      <section id="contact" class="section fade-in">
+        <h2>
+          <span class="section-icon"><i class="fas fa-paper-plane"></i></span>
+          Contato
+        </h2>
+
+        <!-- GRID DE CONTATO (2 COLUNAS) -->
+        <div class="contact-grid">
+          <!-- COLUNA 1 - INFORMAÇÕES -->
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <p>(71) 99168-4751</p>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope email-icon" data-email></i>
+              <p>maiara.sacramento@kroton.com.br</p>
+            </div>
+          </div>
+
+          <!-- COLUNA 2 - FORMULÁRIO -->
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/maiara.sacramento@kroton.com.br"
+            method="POST"
+          >
+            <!-- Campos ocultos para configuração do FormSubmit -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://seusite.com/obrigado.html"
+            />
+            <input type="hidden" name="_template" value="table" />
+
+            <!-- Campos do formulário -->
+            <input type="text" name="nome" placeholder="Seu Nome" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Seu E-mail"
+              required
+            />
+            <textarea
+              name="mensagem"
+              placeholder="Sua Mensagem"
+              required
+            ></textarea>
+
+            <!-- Botão de envio -->
+            <button type="submit">
+              Enviar <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+      <div class="footer-content">
+        <!-- COLUNA 1 - INFORMAÇÕES PESSOAIS -->
+        <div class="footer-column">
+          <h3>Maiara Sacramento</h3>
+          <p>Transformando vidas através da educação tecnológica</p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/maiara-sacramento-60118092/"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.instagram.com/mssacramento13/" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="email-icon" data-email>
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUNA 2 - LINKS RÁPIDOS -->
+        <div class="footer-column">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li>
+              <a href="#about"
+                ><i class="fas fa-chevron-right"></i> Sobre Mim</a
+              >
+            </li>
+            <li>
+              <a href="#experience"
+                ><i class="fas fa-chevron-right"></i> Experiência</a
+              >
+            </li>
+            <li>
+              <a href="#contact"
+                ><i class="fas fa-chevron-right"></i> Contato</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- COLUNA 3 - INFORMAÇÕES DE CONTATO -->
+        <div class="footer-column">
+          <h3>Contato</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-phone"></i> (71) 99168-4751</li>
+            <li>
+              <i class="fas fa-envelope email-icon" data-email></i>
+              maiara.sacramento@kroton.com.br
+            </li>
+            <li><i class="fas fa-map-marker-alt"></i> Salvador, BA</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RODAPÉ INFERIOR (DIREITOS AUTORAIS) -->
+      <div class="footer-bottom">
+        <p>&copy; 2025 Maiara Sacramento. Todos os direitos reservados.</p>
+        <p>
+          Desenvolvido com <i class="fas fa-heart" style="color: #ff6b6b"></i> e
+          muito café <i class="fas fa-coffee"></i>
+          <!-- Coração e café - ingredientes essenciais para qualquer um programar! Ou no meu caso, um acrescimo de Ritalina -->
+        </p>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>

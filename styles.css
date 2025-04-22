@@ -1,0 +1,639 @@
+/* ==================== VARIÁVEIS GLOBAIS ==================== */
+/* 
+ * Aqui definimos as cores e valores reutilizáveis como variáveis CSS
+ * Isso facilita a manutenção e mudança de temas
+ */
+:root {
+  --primary: #6c63ff; /* Cor roxa principal para botões e destaques */
+  --secondary: #4d44db; /* Tom mais escuro de roxo para hover/states */
+  --dark: #2f2e41; /* Cor para texto escuro (quase preto) */
+  --light: #f8f9fa; /* Cor de fundo claro (branco suave) */
+  --gray: #6c757d; /* Cinza para textos secundários */
+  --white: #ffffff; /* Branco puro para elementos sobrepostos */
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra padrão suave */
+}
+
+/* ==================== MODO ESCURO ==================== */
+/*
+ * Quando o atributo data-theme="dark" é aplicado no <body>
+ * Todas estas variáveis substituem as originais
+ */
+[data-theme="dark"] {
+  --primary: #7d73ff; /* Roxo mais vibrante no modo escuro */
+  --secondary: #5a50e5; /* Roxo escuro para contrastar */
+  --dark: #f8f9fa; /* Texto se torna claro */
+  --light: #2f2e41; /* Fundo se torna escuro */
+  --gray: #adb5bd; /* Cinza mais claro para melhor legibilidade */
+  --white: #212529; /* "Branco" agora é um cinza escuro */
+}
+
+/* ==================== RESET E ESTILOS BASE ==================== */
+/*
+ * Reset básico para garantir consistência entre navegadores
+ * e definir comportamentos padrão
+ */
+* {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+  box-sizing: border-box; /* Faz padding e border fazerem parte da largura total */
+  transition: background-color 0.3s, color 0.3s; /* Transição suave para mudanças de tema */
+}
+
+/* Estilos base do documento */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e legível */
+  background-color: var(--light); /* Usa a variável de cor clara */
+  color: var(--dark); /* Usa a variável de texto escuro */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+}
+
+/* ==================== CABEÇALHO ==================== */
+/* Estilos para a seção do cabeçalho com foto de perfil */
+header {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  ); /* Degradê roxo */
+  color: white; /* Texto branco para contraste */
+  text-align: center; /* Centraliza todo o conteúdo */
+  padding: 4rem 1rem; /* Espaçamento interno generoso */
+  position: relative; /* Para posicionar elementos filhos */
+  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse */
+}
+
+/* Container da foto de perfil e informações */
+.profile-container {
+  max-width: 800px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza na página */
+  position: relative; /* Para posicionamento relativo */
+  z-index: 2; /* Garante que fique acima de possíveis elementos de fundo */
+}
+
+/* Estilo da foto de perfil */
+.profile-img {
+  width: 180px; /* Largura fixa */
+  height: 180px; /* Altura fixa (cria um quadrado) */
+  border-radius: 50%; /* Transforma em círculo perfeito */
+  object-fit: cover; /* Garante que a imagem cubra todo o espaço sem distorcer */
+  border: 5px solid rgba(255, 255, 255, 0.2); /* Borda branca semi-transparente */
+  box-shadow: var(--shadow); /* Sombra suave da variável */
+  margin-bottom: 1.5rem; /* Espaço abaixo da foto */
+}
+
+/* Texto de descrição abaixo do nome */
+.tagline {
+  font-size: 1.2rem; /* Tamanho um pouco maior que o texto normal */
+  margin-bottom: 1.5rem; /* Espaço abaixo do texto */
+  opacity: 0.9; /* Leve transparência para efeito sutil */
+}
+
+/* ==================== LINKS SOCIAIS ==================== */
+/* Container dos ícones de redes sociais */
+.social-links {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza os ícones */
+  gap: 1.5rem; /* Espaço entre os ícones */
+  margin-top: 1rem; /* Espaço acima dos ícones */
+}
+
+/* Estilo dos links sociais */
+.social-links a {
+  color: white; /* Ícones brancos */
+  font-size: 1.5rem; /* Tamanho grande */
+  transition: transform 0.3s; /* Animação suave ao interagir */
+}
+
+/* Efeito ao passar o mouse */
+.social-links a:hover {
+  transform: translateY(-5px); /* Levita o ícone 5px para cima */
+}
+
+/* ==================== NAVEGAÇÃO ==================== */
+/* Barra de navegação fixa no topo */
+.sticky-nav {
+  background-color: var(--white); /* Fundo branco (ou escuro no modo dark) */
+  box-shadow: var(--shadow); /* Sombra suave */
+  position: sticky; /* Fixa no topo ao rolar */
+  top: 0; /* Cola no topo da viewport */
+  z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+/* Lista de links de navegação */
+.sticky-nav ul {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza os itens */
+  list-style: none; /* Remove marcadores de lista */
+  padding: 1rem 0; /* Espaçamento vertical */
+}
+
+/* Itens individuais da navegação */
+.sticky-nav li {
+  margin: 0 1.5rem; /* Espaço horizontal entre itens */
+}
+
+/* Links de navegação */
+.sticky-nav a {
+  color: var(--dark); /* Cor do texto */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: 500; /* Peso médio da fonte */
+  display: flex; /* Layout flex para alinhar ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 0.5rem; /* Espaço entre ícone e texto */
+  transition: color 0.3s; /* Transição suave de cor */
+}
+
+/* Efeito hover nos links */
+.sticky-nav a:hover {
+  color: var(--primary); /* Muda para a cor primária ao passar o mouse */
+}
+
+/* ==================== SEÇÕES ==================== */
+/* Estilo base para todas as seções */
+.section {
+  max-width: 1200px; /* Largura máxima do conteúdo */
+  margin: 3rem auto; /* Espaço vertical e centralização */
+  padding: 0 2rem; /* Espaçamento horizontal interno */
+}
+
+/* Títulos das seções */
+.section h2 {
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 2.5rem; /* Espaço abaixo do título */
+  font-size: 2rem; /* Tamanho grande */
+  color: var(--primary); /* Cor roxa principal */
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 1rem; /* Espaço entre ícone e texto */
+}
+
+/* ==================== SOBRE MIM ==================== */
+/* Grid de duas colunas para a seção "Sobre Mim" */
+.content-grid {
+  display: grid; /* Layout em grid */
+  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  gap: 2rem; /* Espaço entre colunas */
+}
+
+/* Estilo do texto sobre mim */
+.about-text {
+  background-color: var(--white); /* Fundo branco */
+  padding: 2rem; /* Espaçamento interno generoso */
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: var(--shadow); /* Sombra suave */
+}
+
+/* Lista de habilidades */
+.skills-list {
+  margin-top: 1rem; /* Espaço acima da lista */
+  list-style: none; /* Remove marcadores padrão */
+}
+
+/* Itens da lista de habilidades */
+.skills-list li {
+  margin-bottom: 0.8rem; /* Espaço entre itens */
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 0.5rem; /* Espaço entre ícone e texto */
+}
+
+/* Ícones da lista de habilidades */
+.skills-list i {
+  color: var(--primary); /* Cor roxa para os ícones */
+}
+
+/* Grid para os cards de fatos */
+.about-facts {
+  display: grid; /* Layout em grid */
+  gap: 1.5rem; /* Espaço entre cards */
+}
+
+/* Cards com estatísticas */
+.fact-card {
+  background-color: var(--white); /* Fundo branco */
+  padding: 1.5rem; /* Espaçamento interno */
+  border-radius: 10px; /* Cantos arredondados */
+  box-shadow: var(--shadow); /* Sombra suave */
+  text-align: center; /* Texto centralizado */
+  transition: transform 0.3s; /* Animação suave */
+}
+
+/* Efeito hover nos cards */
+.fact-card:hover {
+  transform: translateY(-5px); /* Levita o card 5px para cima */
+}
+
+/* Ícones dos cards */
+.fact-card i {
+  font-size: 2.5rem; /* Tamanho grande */
+  color: var(--primary); /* Cor roxa */
+  margin-bottom: 1rem; /* Espaço abaixo do ícone */
+}
+
+/* Números nos cards */
+.fact-card h3 {
+  font-size: 1.8rem; /* Tamanho grande */
+  color: var(--primary); /* Cor roxa */
+}
+
+/* ==================== LINHA DO TEMPO ==================== */
+/* Container da linha do tempo */
+.timeline {
+  position: relative; /* Para posicionar elementos filhos */
+  max-width: 800px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza na página */
+  padding-left: 50px; /* Espaço para a linha vertical */
+}
+
+/* Linha vertical da timeline */
+.timeline::before {
+  content: ""; /* Pseudo-elemento necessário */
+  position: absolute; /* Posicionamento absoluto */
+  left: 20px; /* Distância da esquerda */
+  top: 0; /* Começa no topo */
+  bottom: 0; /* Vai até o final */
+  width: 2px; /* Largura fina */
+  background-color: var(--primary); /* Cor roxa */
+}
+
+/* Itens individuais da timeline */
+.timeline-item {
+  position: relative; /* Para posicionar elementos filhos */
+  margin-bottom: 2rem; /* Espaço entre itens */
+}
+
+/* Data na timeline */
+.timeline-date {
+  position: absolute; /* Posicionamento absoluto */
+  left: -50px; /* Posiciona à esquerda da linha */
+  top: 0; /* Alinha com o topo do conteúdo */
+  width: 100px; /* Largura fixa */
+  text-align: right; /* Alinhamento à direita */
+  color: var(--gray); /* Cor cinza */
+  font-weight: 500; /* Peso médio da fonte */
+}
+
+/* Conteúdo de cada item da timeline */
+.timeline-content {
+  background-color: var(--white); /* Fundo branco */
+  padding: 1.5rem; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos levemente arredondados */
+  box-shadow: var(--shadow); /* Sombra suave */
+  position: relative; /* Para posicionar o marcador */
+}
+
+/* Marcador circular na linha */
+.timeline-content::before {
+  content: ""; /* Pseudo-elemento necessário */
+  position: absolute; /* Posicionamento absoluto */
+  left: -15px; /* Posiciona sobre a linha */
+  top: 20px; /* Alinhamento vertical */
+  width: 15px; /* Tamanho fixo */
+  height: 15px; /* Tamanho fixo (cria um círculo) */
+  background-color: var(--white); /* Fundo branco */
+  border: 3px solid var(--primary); /* Borda roxa */
+  border-radius: 50%; /* Transforma em círculo */
+}
+
+/* ==================== FORMULÁRIO DE CONTATO ==================== */
+/* Grid de duas colunas para a seção de contato */
+.contact-grid {
+  display: grid; /* Layout em grid */
+  grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+  gap: 2rem; /* Espaço entre colunas */
+}
+
+/* Container das informações de contato */
+.contact-info {
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Organiza em coluna */
+  gap: 1.5rem; /* Espaço entre itens */
+}
+
+/* Itens individuais de contato */
+.contact-item {
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 1rem; /* Espaço entre ícone e texto */
+  background-color: var(--white); /* Fundo branco */
+  padding: 1.5rem; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos levemente arredondados */
+  box-shadow: var(--shadow); /* Sombra suave */
+}
+
+/* Ícones dos itens de contato */
+.contact-item i {
+  font-size: 1.5rem; /* Tamanho grande */
+  color: var(--primary); /* Cor roxa */
+}
+
+/* Estilo do formulário */
+.contact-form {
+  background-color: var(--white); /* Fundo branco */
+  padding: 2rem; /* Espaçamento interno generoso */
+  border-radius: 8px; /* Cantos levemente arredondados */
+  box-shadow: var(--shadow); /* Sombra suave */
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Organiza em coluna */
+  gap: 1rem; /* Espaço entre campos */
+}
+
+/* Campos de input e textarea */
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem; /* Espaçamento interno */
+  border: 1px solid #ddd; /* Borda sutil */
+  border-radius: 4px; /* Cantos levemente arredondados */
+  font-family: inherit; /* Herda a fonte do body */
+}
+
+/* Textarea específico */
+.contact-form textarea {
+  min-height: 150px; /* Altura mínima */
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+/* Botão de enviar */
+.contact-form button {
+  background-color: var(--primary); /* Fundo roxo */
+  color: white; /* Texto branco */
+  border: none; /* Remove borda */
+  padding: 1rem; /* Espaçamento interno */
+  border-radius: 4px; /* Cantos levemente arredondados */
+  cursor: pointer; /* Muda cursor para pointer */
+  font-weight: 500; /* Peso médio da fonte */
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 0.5rem; /* Espaço entre ícone e texto */
+  transition: background-color 0.3s; /* Transição suave de cor */
+}
+
+/* Efeito hover no botão */
+.contact-form button:hover {
+  background-color: var(--secondary); /* Cor roxa mais escura */
+}
+
+/* ==================== RODAPÉ ==================== */
+/* Estilo principal do rodapé */
+footer {
+  background-color: var(--dark); /* Fundo escuro */
+  color: var(--light); /* Texto claro */
+  padding: 3rem 0 0; /* Espaçamento interno (top only) */
+  margin-top: 4rem; /* Espaço acima do rodapé */
+  position: relative; /* Para posicionar a onda */
+}
+
+/* Container do conteúdo do rodapé */
+.footer-content {
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza na página */
+  padding: 0 2rem; /* Espaçamento horizontal */
+  display: grid; /* Layout em grid */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Colunas responsivas */
+  gap: 2rem; /* Espaço entre colunas */
+}
+
+/* Colunas individuais do rodapé */
+.footer-column {
+  margin-bottom: 2rem; /* Espaço abaixo de cada coluna */
+}
+
+/* Títulos das colunas */
+.footer-column h3 {
+  color: var(--primary); /* Cor roxa */
+  margin-bottom: 1.5rem; /* Espaço abaixo do título */
+  font-size: 1.2rem; /* Tamanho médio */
+  position: relative; /* Para o pseudo-elemento */
+  padding-bottom: 0.5rem; /* Espaço para a linha */
+}
+
+/* Linha decorativa abaixo dos títulos */
+.footer-column h3::after {
+  content: ""; /* Pseudo-elemento necessário */
+  position: absolute; /* Posicionamento absoluto */
+  left: 0; /* Alinha à esquerda */
+  bottom: 0; /* Posiciona na base do título */
+  width: 50px; /* Largura fixa */
+  height: 2px; /* Altura fina */
+  background-color: var(--primary); /* Cor roxa */
+}
+
+/* Listas no rodapé */
+.footer-column ul {
+  list-style: none; /* Remove marcadores padrão */
+}
+
+/* Itens das listas */
+.footer-column li {
+  margin-bottom: 0.8rem; /* Espaço entre itens */
+}
+
+/* Links no rodapé */
+.footer-column a {
+  color: var(--light); /* Cor clara */
+  text-decoration: none; /* Remove sublinhado */
+  transition: color 0.3s; /* Transição suave de cor */
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 0.5rem; /* Espaço entre ícone e texto */
+}
+
+/* Efeito hover nos links */
+.footer-column a:hover {
+  color: var(--primary); /* Muda para roxo ao passar o mouse */
+}
+
+/* Redes sociais no rodapé */
+.footer-social {
+  display: flex; /* Layout flexível */
+  gap: 1rem; /* Espaço entre ícones */
+  margin-top: 1.5rem; /* Espaço acima dos ícones */
+}
+
+/* Links de redes sociais */
+.footer-social a {
+  color: var(--light); /* Cor clara */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+  width: 40px; /* Largura fixa */
+  height: 40px; /* Altura fixa (cria um quadrado) */
+  border-radius: 50%; /* Transforma em círculo */
+  display: flex; /* Layout flex para centralizar ícone */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  transition: all 0.3s; /* Transição suave para todos os efeitos */
+}
+
+/* Efeito hover nos ícones sociais */
+.footer-social a:hover {
+  background-color: var(--primary); /* Fundo roxo */
+  transform: translateY(-3px); /* Levita levemente */
+}
+
+/* Informações de contato no rodapé */
+.contact-info li {
+  display: flex; /* Layout flex para ícone e texto */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 0.8rem; /* Espaço entre ícone e texto */
+  margin-bottom: 1rem; /* Espaço entre itens */
+}
+
+/* Rodapé inferior (copyright) */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2); /* Fundo semi-transparente */
+  padding: 1.5rem; /* Espaçamento interno */
+  text-align: center; /* Texto centralizado */
+  margin-top: 2rem; /* Espaço acima do rodapé inferior */
+}
+
+/* Parágrafos no rodapé inferior */
+.footer-bottom p {
+  margin: 0.5rem 0; /* Espaço entre parágrafos */
+  font-size: 0.9rem; /* Tamanho pequeno */
+  opacity: 0.8; /* Leve transparência */
+}
+
+/* ==================== EFEITO DE ONDA ==================== */
+/* 
+ * Pseudo-elemento que cria uma onda SVG no topo do rodapé
+ * O SVG foi gerado usando a ferramenta online SVG Wave Generator (https://svgwave.in/)
+ * A técnica de data URI permite embutir o SVG diretamente no CSS
+ * Isso melhora performance ao evitar uma requisição HTTP separada
+ * %23 é a codificação URL para o caractere #
+ */
+footer::before {
+  content: ""; /* Pseudo-elemento necessário */
+  position: absolute; /* Posicionamento absoluto */
+  top: -50px; /* Posiciona acima do rodapé */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Largura total */
+  height: 50px; /* Altura da onda */
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%232f2e41" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%232f2e41" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%232f2e41"/></svg>');
+  background-size: cover; /* Garante que cubra toda a área */
+}
+
+/* ==================== RODAPÉ NO MODO ESCURO ==================== */
+/* Ajustes para o rodapé quando o modo escuro está ativo */
+[data-theme="dark"] footer {
+  background-color: var(--white); /* Fundo branco (na verdade cinza escuro) */
+  color: var(--dark); /* Texto escuro (na verdade claro) */
+}
+
+/* Links no rodapé no modo escuro */
+[data-theme="dark"] .footer-column a {
+  color: var(--dark); /* Texto escuro (na verdade claro) */
+}
+
+/* Redes sociais no modo escuro */
+[data-theme="dark"] .footer-social a {
+  color: var(--dark); /* Ícones escuros (na verdade claros) */
+  background-color: rgba(0, 0, 0, 0.1); /* Fundo semi-transparente escuro */
+}
+
+/* Onda no modo escuro */
+[data-theme="dark"] footer::before {
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23f8f9fa" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23f8f9fa" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f8f9fa"/></svg>');
+  background-size: cover; /* Garante que cubra toda a área */
+}
+
+/* ==================== ÍCONE DE E-MAIL ==================== */
+/* Estilo para ícones de e-mail clicáveis */
+.email-icon[data-email] {
+  cursor: pointer; /* Muda cursor para pointer */
+  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+}
+
+/* Efeito hover nos ícones de e-mail */
+.email-icon[data-email]:hover {
+  transform: scale(1.1); /* Aumenta levemente */
+  color: var(--primary) !important; /* Muda para cor roxa */
+  text-shadow: 0 0 5px rgba(108, 99, 255, 0.5); /* Sombra sutil */
+}
+
+/* ==================== BOTÃO DE TEMA ==================== */
+/* Botão para alternar entre temas claro/escuro */
+.theme-toggle {
+  position: fixed; /* Fixo na tela */
+  bottom: 2rem; /* 2rem do fundo */
+  right: 2rem; /* 2rem da direita */
+  background-color: var(--primary); /* Fundo roxo */
+  color: white; /* Ícone branco */
+  width: 50px; /* Largura fixa */
+  height: 50px; /* Altura fixa */
+  border-radius: 50%; /* Forma circular */
+  display: flex; /* Layout flex para centralizar ícone */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  cursor: pointer; /* Muda cursor para pointer */
+  box-shadow: var(--shadow); /* Sombra suave */
+  z-index: 100; /* Garante que fique acima de outros elementos */
+  transition: transform 0.3s; /* Transição suave */
+}
+
+/* Efeito hover no botão de tema */
+.theme-toggle:hover {
+  transform: scale(1.1); /* Aumenta levemente */
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+/* Classe para elementos que devem aparecer com fade-in */
+.fade-in {
+  opacity: 0; /* Inicia invisível */
+  transform: translateY(20px); /* Deslocado 20px para baixo */
+  transition: opacity 0.6s, transform 0.6s; /* Transição suave */
+}
+
+/* Classe adicionada quando o elemento está visível */
+.fade-in.visible {
+  opacity: 1; /* Torna totalmente visível */
+  transform: translateY(0); /* Volta à posição original */
+}
+
+/* ==================== DESIGN RESPONSIVO ==================== */
+@media (max-width: 768px) {
+  /* Grids se tornam de uma coluna em telas pequenas */
+  .content-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ajustes na timeline */
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline-date {
+    width: 70px;
+    left: -40px;
+  }
+
+  /* Rodapé em uma coluna */
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Centraliza conteúdo do rodapé */
+  .footer-column {
+    text-align: center;
+  }
+
+  /* Centraliza linha decorativa */
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Centraliza redes sociais */
+  .footer-social {
+    justify-content: center;
+  }
+
+  /* Centraliza informações de contato */
+  .contact-info li {
+    justify-content: center;
+  }
+}
